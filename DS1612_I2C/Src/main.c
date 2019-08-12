@@ -124,7 +124,11 @@ int main(void)
   MX_I2C1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+	
+  HAL_I2C_Master_Transmit(&hi2c1, sensor_addr, start_convert_ptr, 1, 100);
+  LCD_Init(hi2c1);
+  LCD_ClearAll(hi2c1);	
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */
